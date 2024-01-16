@@ -4,4 +4,10 @@ class Solution:
         for char in s:
             if char.isalnum():
                 phrase+=char.lower()
-        return phrase==phrase[::-1]
+        l,r=0,len(phrase)-1
+        while l<r:
+            if phrase[l]!=phrase[r]:
+                return False
+            l+=1
+            r-=1
+        return True
