@@ -1,13 +1,16 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        times_rotated = 0
-        for item in range(len(nums)):
-            if item!=len(nums)-1 and nums[item]>nums[item+1]:
-                times_rotated = item + 1
-                break
-        # l,r = 0,len(nums)-1
-        # mid = (l+r)//2
-        # while l<=r:
-        #     mid = (l+r)//2
-        #     if mid
-        return nums[times_rotated]
+        minimum = nums[0]
+        l,r=0,len(nums)-1
+        while l<=r:
+            if nums[l]<nums[r]:
+                minimum = min(minimum,nums[l])
+            mid = (l+r)//2
+            minimum = min(minimum,nums[mid])
+            if nums[mid]>=nums[l]:
+                l=mid+1
+            else:
+                r = mid-1
+        return minimum
+                
+        
