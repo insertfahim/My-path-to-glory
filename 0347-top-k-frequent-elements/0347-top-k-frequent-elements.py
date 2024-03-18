@@ -5,16 +5,9 @@ class Solution:
         for item,freq in count.items():
             place[freq].append(item)
         res = []
-        c = -1
-        while c>=-(len(nums)) and k!=0:
-            if place[c]!=[]:
-                for item in place[c]:
-                    if k>0:
-                        res.append(item)
-                        k-=1
-                    else:
-                        return res
-                c-=1
-            else:
-                c-=1
-        return res
+        for num in place[::-1]:
+            for item in num:
+                res.append(item)
+                k-=1
+                if k==0:
+                    return res
