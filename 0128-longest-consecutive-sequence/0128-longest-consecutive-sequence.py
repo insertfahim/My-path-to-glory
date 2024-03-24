@@ -2,7 +2,6 @@ class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         res = 0
         nums=set(nums)
-        sequences = []
         for num in nums:
             rail = [num]
             add=1
@@ -14,5 +13,4 @@ class Solution:
                     else:
                         break
             res = max(res,len(rail))
-            sequences.append(rail)
         return res
