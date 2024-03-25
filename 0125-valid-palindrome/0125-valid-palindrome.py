@@ -1,13 +1,13 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        phrase = ''
+        t = ''
         for char in s:
             if char.isalnum():
-                phrase+=char.lower()
-        l,r=0,len(phrase)-1
-        while l<r:
-            if phrase[l]!=phrase[r]:
+                t+=char.lower()
+        i,j=0,len(t)-1
+        while i<j:
+            if t[i]!=t[j]:
                 return False
-            l+=1
-            r-=1
+            i+=1
+            j-=1
         return True
