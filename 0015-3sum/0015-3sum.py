@@ -7,7 +7,6 @@ class Solution:
                 break
             if i>0 and num==nums[i-1]:
                 continue
-            
             l,r=i+1,len(nums)-1
             while l<r:
                 if nums[l]+nums[r]+num>0:
@@ -21,7 +20,7 @@ class Solution:
                     while nums[l]==nums[i-1] and l<r:
                         l+=1
         return res
-    
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         res = []
