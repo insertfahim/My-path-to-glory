@@ -17,7 +17,7 @@ class Solution:
                     res.append([nums[r],nums[l],num])
                     l+=1
                     r-=1
-                    while nums[l]==nums[i-1] and l<r:
+                    while nums[l]==nums[l-1] and l<r:
                         l+=1
         return res
 
