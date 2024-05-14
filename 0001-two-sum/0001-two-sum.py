@@ -1,10 +1,8 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        place_holder = {}
-        for index,value in enumerate(nums):
-            gap = target-value
-            if gap in place_holder:
-                return [place_holder[gap],index]
-            else:
-                place_holder[value]=index
-        
+        differences={}
+        for num in range(len(nums)):
+            gap = target-nums[num]
+            if gap in differences:
+                return [differences[gap],num]
+            differences[nums[num]]=num
