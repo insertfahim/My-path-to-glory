@@ -13,10 +13,9 @@ class Solution:
         for i in range(len(p),len(s)):
             if counter_s[s[l]]==1:
                 counter_s.pop(s[l])
-                l+=1
             else:
                 counter_s[s[l]]-=1
-                l+=1
+            l+=1
             r+=1
             counter_s[s[r]]+=1
             if counter_s==counter_p:
