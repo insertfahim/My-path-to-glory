@@ -1,23 +1,20 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        starters = ['(','{','[']
-        closers  = [')','}',']']
-        brackets = []
-        for bracket in range(len(s)):
-            if s[bracket] in starters:
-                brackets.append(s[bracket])
+        stack = []
+        starting_brackets = ['(','[','{']
+        closing_brackets  = [')',']','}']
+        for item in s:
+            if item in starting_brackets:
+                stack.append(item)
             else:
-                if bracket==0:
+                if len(stack)==0:
+                    return False
+                elif starting_brackets.index(stack[-1])!=closing_brackets.index(item):
                     return False
                 else:
-                    if len(brackets)==0:
-                        return False
-                    else:
-                        if closers.index(s[bracket])==starters.index(brackets[-1]):
-                            brackets.pop()
-                        else:
-                            return False
-        if brackets:
+                    stack.pop()
+        if len(stack)!=0:
             return False
-        return True            
-        
+        return True
+                
+                
