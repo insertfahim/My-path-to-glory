@@ -3,7 +3,9 @@ class Solution:
         if len(s)<len(p):
             return []
         counter_p = Counter(p)
-        counter_s = Counter(s[:len(p)])
+        counter_s = defaultdict(int)
+        for item in range(len(p)):
+            counter_s[s[item]]+=1
         res = []
         l,r = 0,len(p)-1
         if counter_p==counter_s:
