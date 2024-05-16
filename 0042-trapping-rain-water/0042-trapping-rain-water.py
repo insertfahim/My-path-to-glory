@@ -2,8 +2,7 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         pool = 0
         left_right = []
-        left  =  0
-        right = 0
+        left=right=0
         for bar in height:
             left_right.append(left)
             left = max(left,bar)
