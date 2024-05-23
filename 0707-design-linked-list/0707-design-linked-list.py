@@ -1,20 +1,19 @@
 class Node:
-    def __init__(self,val=None):
+    def __init__(self,val):
         self.val=val
-        self.next=None
+        self.next = None
 
 class MyLinkedList:
 
     def __init__(self):
-        self.head = Node(-1)
-        self.tail = Node(-1)
+        self.head=Node(-1)
+        self.tail=Node(-1)
         self.head.next=self.tail
         self.nodecount = 0
-        # 1 2 3
         
 
     def get(self, index: int) -> int:
-        if index>=self.nodecount or 0>index:
+        if index<0 or index>=self.nodecount:
             return -1
         i=0
         curr=self.head.next
@@ -24,7 +23,7 @@ class MyLinkedList:
         return curr.val
 
     def addAtHead(self, val: int) -> None:
-        newnode = Node(val)
+        newnode=Node(val)
         newnode.next=self.head.next
         self.head.next=newnode
         self.nodecount+=1
@@ -35,16 +34,16 @@ class MyLinkedList:
         while curr and curr.next!=self.tail:
             curr=curr.next
         newnode=Node(val)
-        curr.next = newnode
-        newnode.next=self.tail
+        newnode.next=curr.next
+        curr.next=newnode
         self.nodecount+=1
         
 
     def addAtIndex(self, index: int, val: int) -> None:
         if index>self.nodecount:
             return None
-        i = 0
-        curr = self.head
+        i=0
+        curr=self.head
         while i<index and curr:
             i+=1
             curr=curr.next
@@ -52,19 +51,18 @@ class MyLinkedList:
         newnode.next=curr.next
         curr.next=newnode
         self.nodecount+=1
-        
 
     def deleteAtIndex(self, index: int) -> None:
-        if index>=self.nodecount or 0>index:
+        if index<0 or index>=self.nodecount:
             return None
         i=0
         curr=self.head
         while i<index and curr:
             i+=1
             curr=curr.next
+            
         curr.next=curr.next.next
         self.nodecount-=1
-        
 
 
 # Your MyLinkedList object will be instantiated and called as such:
