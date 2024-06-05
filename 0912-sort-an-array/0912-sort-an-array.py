@@ -4,17 +4,15 @@ class Solution:
         def merge(arr,start,mid,end):
             first = arr[start:mid+1]
             second=arr[mid+1:end+1]
-            k=start
-            i,j=0,0
+            i,j,k=0,0,start
             while i<len(first) and j<len(second):
                 if first[i]<=second[j]:
                     arr[k]=first[i]
                     i+=1
-                    k+=1
                 else:
                     arr[k]=second[j]
                     j+=1
-                    k+=1
+                k+=1
             while i<len(first):
                 arr[k]=first[i]
                 i+=1
