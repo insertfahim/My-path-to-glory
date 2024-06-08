@@ -12,12 +12,13 @@ class Solution:
                 top=row+1
             else:
                 break
-        left,right = 0,len(matrix[row])-1
+        left,right = 0,columns-1
         while left<=right:
             mid = (left+right)//2
-            if matrix[row][mid]>target:
+            mid_value = matrix[row][mid]
+            if mid_value>target:
                 right=mid-1
-            elif matrix[row][mid]<target:
+            elif mid_value<target:
                 left=mid+1
             else:
                 return True
